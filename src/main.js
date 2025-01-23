@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import "./style.css";
+import App from "./App.vue";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faPlay,faHouse,faRotateLeft,faArrowRight,faTriangleExclamation,faCircleCheck,faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-createApp(App).mount('#app')
+library.add(faPlay,faHouse,faRotateLeft,faArrowRight,faTriangleExclamation,faCircleCheck,faCircleXmark);
+
+createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
