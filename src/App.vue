@@ -228,7 +228,7 @@ onMounted(() => {
           class="rounded-lg text-4xl lg:text-8xl font-bold w-52 text-center outline-none bg-zinc-100 text-zinc-700 border-zinc-400 border-2 py-1"
           v-model="userAnswer" placeholder="???">
         <h1 v-if="isUserAnswer" class="text-4xl lg:text-8xl font-bold"
-          :class="{ 'text-red-600': verifyStatus == 2, 'text-green-600': verifyStatus == 1 }"><font-awesome-icon :icon="['fas', verifyStatus==1 ? 'circle-check' : 'circle-xmark']" /></h1>
+          :class="{ 'text-red-600': verifyStatus == 2, 'text-green-600': verifyStatus == 1 }"><font-awesome-icon :icon="['fas', verifyStatus==1 ? 'circle-check' : 'circle-xmark']" /> {{ verifyStatus==1 ? 'ตอบถูกต้อง!' : 'ตอบผิด!' }}</h1>
       </div>
       <div class="flex flex-row gap-x-2 mb-10">
         <button @click="pageState='start'"
