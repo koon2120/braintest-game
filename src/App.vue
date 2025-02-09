@@ -1,43 +1,15 @@
 <script setup>
-import appData from './stores/appdata';
-import gameData from './stores/gamedata';
-import playerData from './stores/playerdata';
-import AnswerVerify from './composables/AnswerVerify'
-import NextProcress from './composables/NextProcress'
-import onPlayerPlay from './composables/onPlayerPlay'
-import onPlayerResetLevel from './composables/onPlayerResetLevel'
-import onPlayerResetLevelConfirm from './composables/onPlayerResetLevelConfirm'
-import ResetProcress from './composables/ResetProcress'
 import { onMounted } from 'vue';
+import appData from './stores/appdata';
 import StartPage from './components/startPage.vue';
 import InGamePage from './components/inGamePage.vue';
 import ConfirmPage from './components/confirmPage.vue';
+import checkUser from './composables/supabase/checkUser'
+import setUpScore from './composables/setUpScore';
 
-onMounted(() => {
-  if (localStorage.getItem("player-level-3")) {
-    playerData.value.level3 = parseInt(
-      localStorage.getItem("player-level-3")
-    );
-  } else {
-    localStorage.setItem("player-level-3", "1");
-    playerData.value.level3 = 1;
-  }
-  if (localStorage.getItem("player-level-5")) {
-    playerData.value.level5 = parseInt(
-      localStorage.getItem("player-level-5")
-    );
-  } else {
-    localStorage.setItem("player-level-5", "1");
-    playerData.value.level5 = 1;
-  }
-  if (localStorage.getItem("player-level-10")) {
-    playerData.value.level10 = parseInt(
-      localStorage.getItem("player-level-10")
-    );
-  } else {
-    localStorage.setItem("player-level-10", "1");
-    playerData.value.level10 = 1;
-  }
+onMounted(async () => {
+  await checkUser()
+  await setUpScore()
 })
 </script>
 

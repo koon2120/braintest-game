@@ -1,5 +1,6 @@
 import gameData from "../stores/gamedata"
 import playerData from "../stores/playerdata"
+import setScoreLevel from "./supabase/setScoreLevel"
 
 // ตรวจสอบคำตอบ
 export default function AnswerVerify() {
@@ -10,13 +11,13 @@ export default function AnswerVerify() {
       playerData.value.levelDefault += 1
       if (gameData.value.numberNoLimit == 3) {
         playerData.value.level3 = playerData.value.levelDefault
-        localStorage.setItem('player-level-3', String(playerData.value.levelDefault))
+        setScoreLevel(3,playerData.value.levelDefault)
       } else if (gameData.value.numberNoLimit == 5) {
         playerData.value.level5 = playerData.value.levelDefault
-        localStorage.setItem('player-level-5', String(playerData.value.levelDefault))
+        setScoreLevel(5,playerData.value.levelDefault)
       } else if (gameData.value.numberNoLimit == 10) {
         playerData.value.level10 = playerData.value.levelDefault
-        localStorage.setItem('player-level-10', String(playerData.value.levelDefault))
+        setScoreLevel(10,playerData.value.levelDefault)
       }
     } else {
       gameData.value.verifyStatus = 2

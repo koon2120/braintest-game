@@ -21,7 +21,7 @@ import ResetProcress from '../composables/ResetProcress'
         <h1 v-if="!gameData.isQuestion" class="text-8xl font-bold text-rose-800">{{ gameData.mainNumber }}</h1>
         <input v-else-if="!gameData.isUserAnswer" type="text"
             class="rounded-lg text-4xl lg:text-8xl font-bold w-52 text-center outline-none bg-zinc-100 text-zinc-700 border-zinc-400 border-2 py-1"
-            v-model="gameData.userAnswer" placeholder="???">
+            v-model="gameData.userAnswer" placeholder="???" autofocus>
         <h1 v-if="gameData.isUserAnswer" class="text-4xl lg:text-8xl font-bold"
             :class="{ 'text-red-600': gameData.verifyStatus == 2, 'text-green-600': gameData.verifyStatus == 1 }">
             <font-awesome-icon :icon="['fas', gameData.verifyStatus == 1 ? 'circle-check' : 'circle-xmark']" /> {{
