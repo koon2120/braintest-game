@@ -5,6 +5,7 @@ import onPlayerResetLevelConfirm from '../composables/onPlayerResetLevelConfirm'
 import signOut from '../composables/supabase/signOut'
 import signInWithGoogle from '../composables/supabase/signInWithGoogle'
 import userData from '../stores/userdata'
+import appData from '../stores/appdata';
 </script>
 
 <template>
@@ -12,14 +13,17 @@ import userData from '../stores/userdata'
         <h1 class="text-2xl lg:text-5xl font-bold">เกมทายตัวเลขสำหรับเล่นเพลินๆ</h1>
         <p class="text-md font-medium">version 2.0</p>
     </div>
-    <div v-if="!userData" class="flex flex-col items-center mt-8 mx-5 gap-y-5 bg-rose-50 border-2 border-rose-700 px-5 lg:px-10 py-8 rounded-lg ">
+    <div v-if="appData.loading" class="flex flex-col items-center mt-8 mx-5 gap-y-5">
+        <img src="/icon/progress_activity.png" alt="progress_activity" class="w-10 animate-spin">
+    </div>
+    <div v-if="!userData&&!appData.loading" class="flex flex-col items-center mt-8 mx-5 gap-y-5 bg-rose-50 border-2 border-rose-700 px-5 lg:px-10 py-8 rounded-lg">
         <h2 class="font-semibold text-center text-xl lg:text-2xl">โปรดเข้าสู่ระบบเพื่อเก็บข้อมูลเกม</h2>
         <button class="flex flex-row gap-x-2 bg-rose-800 hover:bg-rose-700 text-rose-200 px-3 py-2 rounded-lg transition" @click="signInWithGoogle">
             <p class="font-bold">เข้าสู่ระบบด้วย</p>
             <img src="/icon/google.png" alt="google" class="w-6">
         </button>
     </div>
-    <div v-else class="flex flex-col text-center mt-8">
+    <div v-else-if="userData&&!appData.loading" class="flex flex-col text-center mt-8">
         <div class="bg-green-200 text-green-950 px-20 py-8 m-2 rounded-lg border-2 border-green-800">
             <h2 class="text-3xl font-bold">3 หมายเลข</h2>
             <p class="mb-2">สำหรับเล่นง่ายๆ ชิวๆ เพลินๆ สบายๆ</p>
