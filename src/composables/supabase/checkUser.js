@@ -8,6 +8,7 @@ export default async function checkUser() {
     userData.value = user.data.user
     if (user.data.user) {
         setUpDataInDatabase()
+    }else {
+        appData.value.loading = false
     }
-    appData.value.loading=false
 }
