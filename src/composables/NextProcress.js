@@ -7,7 +7,7 @@ export default function NextProcress() {
       gameData.value.isQuestion = false
       gameData.value.isUserAnswer = false
       gameData.value.numberNo += 1;
-      gameData.value.mainNumber = Math.floor(Math.random() * (9 + (10 * (playerData.value.levelDefault - 1)))) + 1;
+      gameData.value.mainNumber = Math.floor(Math.random() * (9 + (10 * (playerData.value.levelDefault)))) + 1;
       gameData.value.numberList.push(gameData.value.mainNumber)
     } else if (gameData.value.numberNo == gameData.value.numberNoLimit) {
       gameData.value.isQuestion = true
