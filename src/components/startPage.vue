@@ -40,7 +40,7 @@ import appData from '../stores/appdata';
                 </div>
                 <div>
                     <button @click="onPlayerResetLevelConfirm(3)"
-                        class="bg-green-800 text-green-100 hover:opacity-80 transition font-medium px-3 py-1 rounded-xl">รีเซ็ตเลเวล</button>
+                        class="bg-green-800 text-green-100 hover:opacity-80 transition font-medium text-sm px-3 py-1 rounded-xl"><font-awesome-icon :icon="['fas', 'rotate-right']" /> รีเซ็ตเลเวล</button>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@ import appData from '../stores/appdata';
                 </div>
                 <div>
                     <button @click="onPlayerResetLevelConfirm(5)"
-                        class="bg-yellow-800 text-yellow-100 hover:opacity-80 transition font-medium px-3 py-1 rounded-xl">รีเซ็ตเลเวล</button>
+                        class="bg-yellow-800 text-yellow-100 hover:opacity-80 transition font-medium text-sm px-3 py-1 rounded-xl"><font-awesome-icon :icon="['fas', 'rotate-right']" /> รีเซ็ตเลเวล</button>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@ import appData from '../stores/appdata';
                 </div>
                 <div>
                     <button @click="onPlayerResetLevelConfirm(10)"
-                        class="bg-red-800 text-red-100 hover:opacity-80 transition font-medium px-3 py-1 rounded-xl">รีเซ็ตเลเวล</button>
+                        class="bg-red-800 text-red-100 hover:opacity-80 transition font-medium text-sm px-3 py-1 rounded-xl"><font-awesome-icon :icon="['fas', 'rotate-right']" /> รีเซ็ตเลเวล</button>
                 </div>
             </div>
         </div>

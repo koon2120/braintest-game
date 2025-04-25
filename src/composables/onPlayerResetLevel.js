@@ -7,14 +7,14 @@ import setScoreLevel from "./supabase/setScoreLevel"
 export default function onPlayerResetLevel(value) {
     if (gameData.value.playerResetLevel != 0 && value) {
       if (gameData.value.playerResetLevel == 3) {
-        setScoreLevel(3,1)
-        playerData.value.level3 = 1
+        setScoreLevel(3,0)
+        playerData.value.level3 = 0
       } else if (gameData.value.playerResetLevel == 5) {
-        setScoreLevel(5,1)
-        playerData.value.level5 = 1
+        setScoreLevel(5,0)
+        playerData.value.level5 = 0
       } else if (gameData.value.playerResetLevel == 10) {
-        setScoreLevel(10,1)
-        playerData.value.level10 = 1
+        setScoreLevel(10,0)
+        playerData.value.level10 = 0
       }
     }
     gameData.value.playerResetLevel = 0
