@@ -13,9 +13,8 @@ import ResetProcress from '../composables/ResetProcress'
             }}</p>
     </div>
     <div class="mb-3">
-        <p v-if="!gameData.isQuestion" class="font-semibold text-xl">หมายเลขที่ {{ gameData.numberNo }}</p>
-        <p v-else class="font-semibold text-xl"><span class="underline">คำถาม</span> หมายเลขที่ {{ gameData.numberNo }}
-            คือเลขอะไร?</p>
+        <p v-if="!gameData.isQuestion" class="font-semibold text-xl">{{ $t('message.number', { number: gameData.numberNo }) }}</p>
+        <p v-else class="font-semibold text-xl"><span class="underline">{{ $t('message.question') }}</span> {{ $t('message.questionDetail', { number: gameData.numberNo }) }}</p>
     </div>
     <div class="text-center mt-5 mb-6">
         <h1 v-if="!gameData.isQuestion" class="text-8xl font-bold text-rose-800">{{ gameData.mainNumber }}</h1>
@@ -25,7 +24,7 @@ import ResetProcress from '../composables/ResetProcress'
         <h1 v-if="gameData.isUserAnswer" class="text-4xl lg:text-8xl font-bold"
             :class="{ 'text-red-600': gameData.verifyStatus == 2, 'text-green-600': gameData.verifyStatus == 1 }">
             <font-awesome-icon :icon="['fas', gameData.verifyStatus == 1 ? 'circle-check' : 'circle-xmark']" /> {{
-                gameData.verifyStatus == 1 ? 'ตอบถูกต้อง!' : 'ตอบผิด!' }}
+                gameData.verifyStatus == 1 ? $t('message.correct') : $t('message.incorrect') }}
         </h1>
     </div>
     <div class="flex flex-row gap-x-2 mb-10">
@@ -48,21 +47,14 @@ import ResetProcress from '../composables/ResetProcress'
     </div>
     <div class="bg-rose-200 p-5 m-5 rounded-lg lg:w-1/2">
         <h2 class="font-bold text-xl mb-2">How To Play</h2>
-        <p class="mb-3">สำหรับวิธีการเล่นนั้นง่ายมากๆ เพียงแค่คุณจำตัวเลขบนหน้าจอแล้วกด " <font-awesome-icon
-                :icon="['fas', 'arrow-right']" /> "
-            เพื่อรับเลขถัดไปมาแสดงผล คุณจะต้องจำตัวเลขเหล่านี้ไปเรื่อยจนกว่าจะครบ {{ gameData.numberNoLimit }} ตัวเลข
-            เมื่อครบแล้วคุณจะได้รับคำถามอย่างเช่น
-            "หมายเลขที่ {{ gameData.numberNoLimit }} คือเลขอะไร?" คุณจะต้องตอบให้ถูกต้อง หากตอบถูกเลเวลก็จะเพิ่มขึ้น
-            และระดับความยากก็จะเพิ่มขึ้นไปด้วย
+        <p class="mb-3">{{ $t('message.howToPlay1') }} " <font-awesome-icon :icon="['fas', 'arrow-right']" /> " {{ $t('message.howToPlay2', { number: gameData.numberNoLimit }) }}
         </p>
         <p>
-            นอกจากนี้คุณยังสามารถเริ่มใหม่ได้หากจำตัวเลขไม่ได้แล้วต้องการเริ่มใหม่ โดยการกด " <font-awesome-icon
-                :icon="['fas', 'rotate-left']" /> " หรือต้องการกลับหน้าแรกให้กด " <font-awesome-icon
-                :icon="['fas', 'house']" /> " เพื่อกลับไปยังหน้าแรก
+            {{ $t('message.howToPlay3') }} " <font-awesome-icon :icon="['fas', 'rotate-left']" /> " {{ $t('message.howToPlay4') }} " <font-awesome-icon :icon="['fas', 'house']" /> " {{ $t('message.howToPlay5') }}
         </p>
     </div>
     <div>
-        <p class="font-normal text-sm text-rose-800 opacity-70">พบบัค หรือปัญหาใดๆ โปรดแจ้งที่ <a
+        <p class="font-normal text-sm text-rose-800 opacity-70">{{ $t('message.lastMessage') }} <a
                 href="mailto:me@koon2120.work"
                 class="font-medium text-rose-900 hover:text-zinc-800">me@koon2120.work</a>
         </p>
