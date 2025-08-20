@@ -5,7 +5,7 @@ export const i18n = createI18n({
   messages: {
     en: {
       message: {
-        title: 'A number guessing game',
+        title: '🧠 Brain Test Game',
         description: 'A number guessing game for casual play and brain training',
         plasesignin: 'Please log in to save game data',
         signinwith: 'Sign In With',
@@ -35,7 +35,7 @@ export const i18n = createI18n({
     },
     th: {
       message: {
-        title: 'เกมทายตัวเลข',
+        title: '🧠 เกมทายตัวเลข',
         description: 'เกมทายตัวเลขสำหรับเล่นเพลินๆ ฝึกการใช้สมอง',
         plasesignin: 'โปรดเข้าสู่ระบบเพื่อเก็บข้อมูลเกม',
         signinwith: 'เข้าสู่ระบบด้วย',
