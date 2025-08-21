@@ -10,11 +10,16 @@ import ResetProcress from '../composables/ResetProcress'
 <template>
     <div class="mb-3">
         <p class="bg-green-200 text-green-900 px-2 py-1 rounded-xl text-xs font-medium">LEVEL {{ playerData.levelDefault
-            }}</p>
+        }}</p>
     </div>
     <div class="mb-3">
-        <p v-if="!gameData.isQuestion" class="font-semibold text-xl">{{ $t('message.number', { number: gameData.numberNo }) }}</p>
-        <p v-else class="font-semibold text-xl"><span class="underline">{{ $t('message.question') }}</span> {{ $t('message.questionDetail', { number: gameData.numberNo }) }}</p>
+        <p v-if="!gameData.isQuestion" class="font-semibold text-xl">{{ $t('message.number', {
+            number: gameData.numberNo
+            }) }}</p>
+        <div v-else class="font-semibold text-xl text-center">
+            <p class="underline">{{ $t('message.question') }}</p>
+            <p>{{ $t('message.questionDetail', { number: gameData.numberNo }) }}</p>
+        </div>
     </div>
     <div class="text-center mt-5 mb-6">
         <h1 v-if="!gameData.isQuestion" class="text-8xl font-bold text-rose-800">{{ gameData.mainNumber }}</h1>
@@ -47,14 +52,17 @@ import ResetProcress from '../composables/ResetProcress'
     </div>
     <div class="bg-rose-200 p-5 m-5 rounded-lg lg:w-1/2">
         <h2 class="font-bold text-xl mb-2">How To Play</h2>
-        <p class="mb-3">{{ $t('message.howToPlay1') }} " <font-awesome-icon :icon="['fas', 'arrow-right']" /> " {{ $t('message.howToPlay2', { number: gameData.numberNoLimit }) }}
+        <p class="mb-3">{{ $t('message.howToPlay1') }} " <font-awesome-icon :icon="['fas', 'arrow-right']" /> " {{
+            $t('message.howToPlay2', { number: gameData.numberNoLimit }) }}
         </p>
         <p>
-            {{ $t('message.howToPlay3') }} " <font-awesome-icon :icon="['fas', 'rotate-left']" /> " {{ $t('message.howToPlay4') }} " <font-awesome-icon :icon="['fas', 'house']" /> " {{ $t('message.howToPlay5') }}
+            {{ $t('message.howToPlay3') }} " <font-awesome-icon :icon="['fas', 'rotate-left']" /> " {{
+                $t('message.howToPlay4') }} " <font-awesome-icon :icon="['fas', 'house']" /> " {{ $t('message.howToPlay5')
+            }}
         </p>
     </div>
     <div>
-        <p class="font-normal text-sm text-rose-800 opacity-70">{{ $t('message.lastMessage') }} <a
+        <p class="font-normal text-sm text-center text-rose-800 opacity-70">{{ $t('message.lastMessage') }} <a
                 href="mailto:me@koon2120.work"
                 class="font-medium text-rose-900 hover:text-zinc-800">me@koon2120.work</a>
         </p>

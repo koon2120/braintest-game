@@ -11,8 +11,8 @@ import appData from '../stores/appdata';
 <template>
     <div class="flex flex-col items-center text-center">
         <img src="/favicon.png" alt="" class="w-32">
-        <p class="text-2xl lg:text-4xl font-semibold mx-16">{{ $t('message.title') }}</p>
-        <p class="text-lg lg:text-sm font-light mx-16 mt-1">{{ $t('message.description') }}</p>
+        <p class="text-3xl lg:text-4xl font-bold">{{ $t('message.title') }}</p>
+        <p class="text-lg lg:text-sm font-light mt-1 px-8">{{ $t('message.description') }}</p>
         <select class="rounded-full px-1 mt-2" v-model="appData.language">
             <option class="" v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}
             </option>
